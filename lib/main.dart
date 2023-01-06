@@ -6,12 +6,13 @@ import 'package:payment_app/payment/payment_screen.dart';
 import 'package:payment_app/statement/statement_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   FlutterError.onError = (FlutterErrorDetails details) {
     Zone.current.handleUncaughtError(details.exception, details.stack!);
   };
 
   runZonedGuarded<Future<void>>(() async {
-    Instabug.start('ed6f659591566da19b67857e1b9d40ab', [InvocationEvent.shake]);
+    Instabug.start('ed6f659591566da19b67857e1b9d40ab', [InvocationEvent.floatingButton]);
     runApp(const PaymentApp());
   }, (Object error, StackTrace stackTrace) {
     CrashReporting.reportCrash(error, stackTrace);
